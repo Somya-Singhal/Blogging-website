@@ -34,10 +34,6 @@ app.get("/compose", function(req, res) {
   res.render("compose");
  });
 
- app.get('/post/:newSection', function(req,res) {
-   console.log(req.params.newSection);
- })
-
 app.post("/compose", function(req, res) {
   const post = {
     postTit: req.body.postTitle,
@@ -48,16 +44,15 @@ app.post("/compose", function(req, res) {
   // console.log(req.body.inputArea);
 })
 
-
-
-
-
-
-
-
-
-
-
+app.get('/post/:newSection', function(req,res) {
+  //  console.log(req.params.newSection);
+  const heading = req.params.newSection;
+  posts.forEach(function(post) {
+    const storeTitle = post.postTit;
+    if(heading === storeTitle)
+    console.log("Match found!!");
+  })
+ })
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
