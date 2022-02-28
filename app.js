@@ -51,7 +51,8 @@ app.get('/post/:newSection', function(req,res) {
   posts.forEach(function(post) {
     const storeTitle = _.lowerCase(post.postTit);
     if(storeTitle === heading)
-    console.log("Match found!!");
+    // console.log("Match found!!");
+    res.render("post", {currPostTitle: post.postTit, currPostBody: post.postBdy});
   })
  })
 
